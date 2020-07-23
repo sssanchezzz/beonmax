@@ -8,7 +8,6 @@ function start() {
         money = +prompt('Ваш бюджет на месяц?', '');
     }
 }
-
 start();
 
 let appData = {
