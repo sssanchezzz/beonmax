@@ -8,6 +8,7 @@ function start() {
         money = +prompt('Ваш бюджет на месяц?', '');
     }
 }
+
 start();
 
 let appData = {
@@ -30,10 +31,12 @@ let appData = {
             }
         }
     },
+
     detectDayBudget: function () {
         appData.moneyPerDay = (appData.budget / 30).toFixed(1);
         alert('Ежедневный бюджет: ' + appData.moneyPerDay);
     },
+
     detectLevel: function () {
         if (appData.moneyPerDay <= 100) {
             console.log('Минимальный уровень достатка');
@@ -45,6 +48,7 @@ let appData = {
             console.log('Произошла ошибка');
         }
     },
+
     checkSavings: function () {
         appData.savings = confirm('У вас есть накопления?');
         if (appData.savings == true) {
@@ -55,6 +59,7 @@ let appData = {
             alert('Доход в месяц с Вашего депозита: ' + appData.monthIncome);
         }
     },
+
     chooseOptExpenses: function () {
         for (let i = 0; i < 3; i++) {
             let a = prompt('Статья необязательных расходов?', '');
@@ -66,6 +71,7 @@ let appData = {
             }
         }
     },
+
     chooseIncome: function () {
         let items = prompt('Что принесёт дополнительный доход? (Перечислите через запятую', '');
         while (typeof (items) !== 'string' || typeof (items) == null || items == '') {
@@ -73,11 +79,10 @@ let appData = {
         }
         appData.income = items.split(', ');
         let smthngElse = prompt('Может что-то ещё?');
-        if(typeof (smthngElse) == 'string' && typeof (smthngElse) != null && smthngElse != ''){
+        if (typeof (smthngElse) == 'string' && typeof (smthngElse) != null && smthngElse != '') {
             appData.income.push(smthngElse);
         }
         appData.income.sort();
-
 
         let newArray = [];
         appData.income.forEach(function (item, i) {
@@ -94,9 +99,10 @@ appData.chooseIncome();
 function printAppData() {
     console.log('Программа включает в себя данные: ');
     for (let appDataKey in appData) {
-            console.log(appDataKey);
+        console.log(appDataKey);
     }
 }
+
 printAppData();
 
 // let i = 0;
